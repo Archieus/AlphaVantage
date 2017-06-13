@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import json
 import requests
+from scipy import stats
 import numpy as np
 from sklearn import linear_model
 
@@ -43,5 +44,11 @@ b = b.astype(np.int).tolist()
 
 clf = linear_model.LinearRegression()
 clf.fit(a, b)
+
+foo1 = [float(x[1]) for x in open_values1]
+foo2 = [float(x[1]) for x in open_values2]
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(foo1, foo2)
+print(slope, intercept)
 
 print(clf.coef_)

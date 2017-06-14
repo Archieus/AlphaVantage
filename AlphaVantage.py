@@ -48,7 +48,7 @@ clf.fit(a, b)
 foo1 = [float(x[1]) for x in values1]
 foo2 = [float(x[1]) for x in values2]
 
-slope, intercept, r_value, p_value, std_err = stats.linregress(foo1, foo2)
+slope, intercept, r_value, p_value, std_err = stats.linregress(foo2, foo1)
 print(slope, intercept)
 
 print(clf.coef_)
